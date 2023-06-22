@@ -73,7 +73,7 @@ const Auth = () => {
           onChange={onChange}
         />
         <input
-          name="password"
+          name="submit"
           type="submit"
           value={newAccount ? "Create Account" : "Sign In"}
         />
