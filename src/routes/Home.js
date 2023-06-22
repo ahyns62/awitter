@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { dbService } from "../fbase";
 import { addDoc, collection } from "firebase/firestore";
+import Aweet from "../components/Aweet";
 
 const Home = ({ userObj }) => {
   const [aweet, setAweet] = useState("");
@@ -45,11 +46,13 @@ const Home = ({ userObj }) => {
         />
         <input type="submit" value="Aweet" />
       </form>
-      <div key={aweet.id}>
+      <div>
         {aweets.map((aweet) => (
-          <div>
-            <h4>{aweet.text}</h4>
-          </div>
+          <Aweet
+            key={aweet.id}
+            aweetObj={aweet}
+            isOwner={aweet.creatorId === userObj.uid}
+          />
         ))}
       </div>
     </div>
