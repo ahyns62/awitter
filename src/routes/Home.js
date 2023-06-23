@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { dbService, storageService } from "../fbase";
-import { addDoc, collection } from "firebase/firestore";
 import Aweet from "../components/Aweet";
 
 const Home = ({ userObj }) => {
   const [aweet, setAweet] = useState("");
   const [aweets, setAweets] = useState([]);
-  const [attachment, setAttachment] = useState();
+  const [attachment, setAttachment] = useState("");
 
   useEffect(() => {
     dbService.collection("aweets").onSnapshot((snapshot) => {
@@ -21,15 +20,24 @@ const Home = ({ userObj }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
-    const response = await fileRef.putString(attachment, "data_url");
-    console.log(response);
-    // await addDoc(collection(dbService, "aweets"), {
-    //   text: aweet,
-    //   createdAt: Date.now(),
-    //   creatorId: userObj.uid,
-    // });
-    // setAweet("");
+    let attachmentUrl = "";
+    if (attachment !== "") {
+      const attachmentRef = storageService
+        .ref()
+        .child(`${userObj.uid}/${uuidv4()}`);
+      const response = await attachmentRef.putString(attachment, "data_url");
+      attachmentUrl = await response.ref.getDownloadURL();
+    }
+    const aweetObj = {
+      text: aweet,
+      createdAt: Date.now(),
+      creatorId: userObj.uid,
+      attachmentUrl,
+    };
+
+    await dbService.collection("aweets").add(aweetObj);
+    setAweet("");
+    setAttachment("");
   };
 
   const onChange = (event) => {
@@ -54,7 +62,9 @@ const Home = ({ userObj }) => {
     };
     reader.readAsDataURL(theFile);
   };
-  const onClearAttachment = () => setAttachment(null);
+  const onClearAttachment = () => {
+    setAttachment("");
+  };
 
   return (
     <div>
