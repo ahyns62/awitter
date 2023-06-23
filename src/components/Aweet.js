@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { dbService, storageService } from "../fbase";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Aweet = ({ aweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
@@ -34,10 +36,10 @@ const Aweet = ({ aweetObj, isOwner }) => {
   };
 
   return (
-    <div>
+    <div className="aweet">
       {editing ? (
         <>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onSubmit} className="container aweetEdit">
             <input
               type="text"
               placeholder="Edit your aweet"
@@ -45,21 +47,25 @@ const Aweet = ({ aweetObj, isOwner }) => {
               required
               onChange={onChange}
             />
-            <input type="submit" value="Update Aweet" />
+            <input type="submit" value="Update Aweet" className="formBtn" />
           </form>
-          <button onClick={toggleEditing}>Cancel</button>
+          <span onClick={toggleEditing} className="formBtn cancelBtn">
+            Cancel
+          </span>
         </>
       ) : (
         <>
           <h4>{aweetObj.text}</h4>
-          {aweetObj.attachmentUrl && (
-            <img src={aweetObj.attachmentUrl} width="50px" height="50px" />
-          )}
+          {aweetObj.attachmentUrl && <img src={aweetObj.attachmentUrl} />}
           {isOwner && (
-            <>
-              <button onClick={onDeleteClick}>Delete Aweet</button>
-              <button onClick={toggleEditing}>Edit Aweet</button>
-            </>
+            <div className="aweet__actions">
+              <span onClick={onDeleteClick}>
+                <FontAwesomeIcon icon={faTrash} />
+              </span>
+              <span onClick={toggleEditing}>
+                <FontAwesomeIcon icon={faPencilAlt} />
+              </span>
+            </div>
           )}
         </>
       )}
