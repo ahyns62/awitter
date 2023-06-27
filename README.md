@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+# Awitter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Twitter clone Made with React & Firebase
 
-## Available Scripts
+## App
 
-In the project directory, you can run:
+Name: "Awitter"<br/>
+Page : https://ahyns62.github.io/awitter/<br/>
 
-### `npm start`
+### Made with
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+React <br/>
+CSS <br/>
+Firebase <br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Screenshots
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img width="600" src="https://file.notion.so/f/s/5913ebe5-49cc-4a6c-8827-261caa8b9354/Untitled.png?id=892fd3ad-9009-4eae-8aed-b304b6feb4db&table=block&spaceId=6e035e65-dd2e-491b-8115-db7d30b9f780&expirationTimestamp=1687971438508&signature=FvHMUp2Gj2BZ2796iROFmcZgBSS6K7Rp7pVH8tceK6c&downloadName=Untitled.png">
+<img width="600" src="https://file.notion.so/f/s/357ccde9-a1b4-4ad9-8b14-0ee27ff60645/Untitled.png?id=937982fd-3d21-476b-b0b2-032dc3b269bc&table=block&spaceId=6e035e65-dd2e-491b-8115-db7d30b9f780&expirationTimestamp=1687971477261&signature=HgVoOh2RwgYHkeYcjhThBxS3xCHnVn-0k6c8imG-4Zk&downloadName=Untitled.png">
+<img width="600" src="https://file.notion.so/f/s/c6f24b90-e645-4872-918d-ded10733b965/Untitled.png?id=1f296fb1-5b15-4550-888b-11fa72047d00&table=block&spaceId=6e035e65-dd2e-491b-8115-db7d30b9f780&expirationTimestamp=1687971512459&signature=x2v8RwR2GaOYujsk-xMG1k4pHo4erFMCVvrozxp0H8M&downloadName=Untitled.png">
