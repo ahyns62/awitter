@@ -1,30 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { dbService } from "../fbase";
-import Aweet from "../components/Aweet";
-import AweetFactory from "../components/AweetFactory";
+import React, { useEffect, useState } from "react"
+import { dbService } from "fbase";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import Tweet from "components/Tweet";
+import TweetFactory from "components/TweetFactory";
 
 const Home = ({ userObj }) => {
-  const [aweets, setAweets] = useState([]);
+  const [tweets, setTweets] = useState([]);
   useEffect(() => {
-    dbService.collection("aweets").onSnapshot((snapshot) => {
-      const aweetArray = snapshot.docs.map((doc) => ({
+    const q = query(collection(dbService, "tweets"), orderBy("createdAt", "desc"))
+    onSnapshot(q, (snapshot) => {
+      const tweetArray = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
       }));
-      setAweets(aweetArray);
+      setTweets(tweetArray);
     });
   }, []);
 
   return (
     <div className="container">
-      <AweetFactory userObj={userObj} />
-      <div style={{ marginTop: 30 }}>
-        {aweets.map((aweet) => (
-          <Aweet
-            key={aweet.id}
-            aweetObj={aweet}
-            isOwner={aweet.creatorId === userObj.uid}
-          />
+      <TweetFactory userObj={userObj} />
+      <div>
+        {tweets.map(tweet => (
+          <Tweet key={tweet.id} tweetObj={tweet} isOwner={tweet.creatorId === userObj.uid} />
         ))}
       </div>
     </div>

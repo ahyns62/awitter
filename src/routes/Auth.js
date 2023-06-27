@@ -1,10 +1,15 @@
 import React from "react";
-import { authService, firebaseInstance } from "fbase";
+import { auth } from "../fbase";
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+} from "firebase/auth";
 import AuthForm from "components/AuthForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTwitter,
   faGoogle,
+  faTwitter,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -15,14 +20,13 @@ const Auth = () => {
     } = event;
     let provider;
     if (name === "google") {
-      provider = new firebaseInstance.auth.GoogleAuthProvider();
+      provider = new GoogleAuthProvider();
     } else if (name === "github") {
-      provider = new firebaseInstance.auth.GithubAuthProvider();
+      provider = new GithubAuthProvider();
     }
-    const data = await authService.signInWithPopup(provider);
+    const data = await signInWithPopup(auth, provider);
     console.log(data);
   };
-
   return (
     <div className="authContainer">
       <FontAwesomeIcon
@@ -34,13 +38,16 @@ const Auth = () => {
       <AuthForm />
       <div className="authBtns">
         <button onClick={onSocialClick} name="google" className="authBtn">
-          Continue with Google <FontAwesomeIcon icon={faGoogle} />
+          <FontAwesomeIcon icon={faGoogle} />
+          &nbsp; Google 계정으로 가입
         </button>
         <button onClick={onSocialClick} name="github" className="authBtn">
-          Continue with Github <FontAwesomeIcon icon={faGithub} />
+          <FontAwesomeIcon icon={faGoogle} />
+          &nbsp; Github 계정으로 가입
         </button>
       </div>
     </div>
   );
 };
+
 export default Auth;

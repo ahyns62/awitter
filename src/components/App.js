@@ -1,35 +1,35 @@
-import React, { useState, useEffect } from "react";
-import AppRouter from "components/Router";
-import { authService } from "fbase";
+import React, { useEffect, useState } from "react";
+import AppRouter from "./Router";
+import { auth } from "../fbase";
+import { onAuthStateChanged, updateProfile } from "firebase/auth";
 
 function App() {
   const [init, setInit] = useState(false);
   const [userObj, setUserObj] = useState(null);
   useEffect(() => {
-    // 유저 변화 관찰
-    authService.onAuthStateChanged((user) => {
+    onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserObj({
           displayName: user.displayName,
           uid: user.uid,
-          updateProfile: (args) => user.updateProfile(args),
+          updateProfile: () => updateProfile(user, { displayName: user.displayName }),
         });
       } else {
-        setUserObj(null);
+        setUserObj(null)
       }
       setInit(true);
     });
   }, []);
   const refreshUser = () => {
-    const user = authService.currentUser;
+    const user = auth.currentUser;
     setUserObj({
       displayName: user.displayName,
       uid: user.uid,
-      updateProfile: (args) => user.updateProfile(args),
+      updateProfile: () => updateProfile(user, { displayName: user.displayName }),
     });
-  };
+  }
   return (
-    <>
+    <div>
       {init ? (
         <AppRouter
           refreshUser={refreshUser}
@@ -37,10 +37,9 @@ function App() {
           userObj={userObj}
         />
       ) : (
-        "Initializing.."
+        "Initializing..."
       )}
-      {/* <footer>&copy; {new Date().getFullYear()} Awitter</footer> */}
-    </>
+    </div>
   );
 }
 

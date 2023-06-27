@@ -1,33 +1,30 @@
-import React, { useState } from "react";
-import { authService } from "../fbase";
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react"
+import { auth } from "fbase";
+import { signOut, updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Profile = ({ refreshUser, userObj }) => {
-  const history = useHistory();
-  const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
-
+  const navigate = useNavigate();
+  const [newDisplayName, setNewDisplayName] = useState(userObj.displayName)
   const onLogOutClick = () => {
-    authService.signOut();
-    history.push("/");
+    signOut(auth);
+    navigate("/");
+    refreshUser();
   };
 
   const onChange = (event) => {
-    const {
-      target: { value },
-    } = event;
+    const { target: { value }, } = event;
     setNewDisplayName(value);
-  };
-
+  }
   const onSubmit = async (event) => {
     event.preventDefault();
     if (userObj.displayName !== newDisplayName) {
-      await userObj.updateProfile({
+      await updateProfile(auth.currentUser, {
         displayName: newDisplayName,
       });
       refreshUser();
     }
-  };
-
+  }
   return (
     <div className="container">
       <form onSubmit={onSubmit} className="profileForm">
@@ -42,15 +39,10 @@ const Profile = ({ refreshUser, userObj }) => {
         <input
           type="submit"
           value="Update Profile"
-          className="formBtn"
-          style={{
-            marginTop: 10,
-          }}
+          className="updateProfileBtn"
         />
       </form>
-      <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
-        Log Out
-      </span>
+      <span onClick={onLogOutClick} className="logOut">Log Out</span>
     </div>
   );
 };

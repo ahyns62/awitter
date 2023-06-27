@@ -1,20 +1,20 @@
 @import "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css";
 
+input {
+  all: unset;
+  appearance: none;
+  box-sizing: border-box;
+}
+
 * {
   box-sizing: border-box;
 }
 
-input {
-  all: unset;
-  box-sizing: border-box;
-  appearance: none;
-}
-
 body {
-  background-color: black;
+  background-color: rgb(192, 213, 236);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 14px;
+  font-size: 28px;
   color: white;
 }
 
@@ -32,7 +32,7 @@ form {
   width: 100%;
 }
 
-.aweet-input::placeholder {
+.nweet-input::placeholder {
   color: white;
   opacity: 0.9;
 }
@@ -62,12 +62,20 @@ form {
   color: white;
   border-radius: 20px;
   background-color: #04aaff;
-  cursor: pointer;
 }
 
 .cancelBtn {
   cursor: pointer;
   background-color: tomato;
+}
+
+.router {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 /* Profile Page */
@@ -80,11 +88,29 @@ form {
   flex-direction: column;
 }
 
-.logOut {
-  margin-top: 50px;
+.updateProfileBtn {
+  cursor: pointer;
+  width: 100%;
+  padding: 7px 20px;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  background-color: #04aaff;
+  margin-top: 10px;
 }
 
-/* Awitter Factory */
+.logOut {
+  margin-top: 50px;
+  cursor: pointer;
+  width: 100%;
+  padding: 7px 20px;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  background-color: tomato;
+}
+
+/* Twitter Factory */
 
 .factoryForm {
   display: flex;
@@ -95,11 +121,9 @@ form {
 
 .factoryInput__container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   position: relative;
-  margin-bottom: 20px;
   width: 100%;
 }
 
@@ -124,28 +148,30 @@ form {
   text-align: center;
   border-radius: 20px;
   color: white;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .factoryInput__label {
   color: #04aaff;
   cursor: pointer;
-}
-
-.factoryInput__label span {
-  margin-right: 10px;
-  font-size: 12px;
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .factoryForm__attachment {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
 .factoryForm__attachment img {
-  height: 80px;
-  width: 80px;
-  border-radius: 40px;
+  height: 150px;
+  border-radius: 15px;
+  margin-right: 15px;
 }
 
 .factoryForm__clear {
@@ -154,20 +180,15 @@ form {
   text-align: center;
 }
 
-.factoryForm__clear span {
-  margin-right: 10px;
-  font-size: 12px;
-}
+/* Nweet */
 
-/* Aweet */
-
-.aweetEdit .formBtn {
+.nweetEdit .formBtn {
   cursor: pointer;
   margin-top: 15px;
   margin-bottom: 5px;
 }
 
-.aweet {
+.nweet {
   margin-bottom: 20px;
   background-color: white;
   width: 100%;
@@ -180,31 +201,32 @@ form {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.heet h4 {
+.nweet h4 {
   font-size: 14px;
+  word-wrap: break-word;
+  margin-top: 10px;
+  line-height: 1.4;
 }
 
-.aweet img {
-  right: -10px;
+.nweet img {
+  right: 10%;
   top: 20px;
-  position: absolute;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  border-radius: 15px;
   margin-top: 10px;
 }
 
-.aweet__actions {
+.nweet__actions {
   position: absolute;
   right: 10px;
   top: 10px;
 }
 
-.aweet__actions span {
+.nweet__actions span {
   cursor: pointer;
 }
 
-.aweet__actions span:first-child {
+.nweet__actions span:first-child {
   margin-right: 10px;
 }
 
@@ -222,7 +244,7 @@ form {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
 }
 
 .authBtn {
@@ -232,8 +254,9 @@ form {
   padding: 10px 0px;
   font-size: 12px;
   text-align: center;
-  width: 150px;
-  background: white;
+  width: 300px;
+  background: rgb(67, 130, 207);
+  color: white;
   cursor: pointer;
 }
 
@@ -248,6 +271,7 @@ form {
   margin-bottom: 10px;
   font-size: 12px;
   color: black;
+  box-sizing: border-box;
 }
 
 .authSubmit {
@@ -255,6 +279,7 @@ form {
   background: #04aaff;
   color: white;
   margin-top: 10px;
+  box-sizing: border-box;
   cursor: pointer;
 }
 
