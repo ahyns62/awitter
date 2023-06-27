@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/awitter/static/css/main.70962265.css",
+    "main.js": "/awitter/static/js/main.29fa28d7.js",
+    "index.html": "/awitter/index.html",
+    "main.70962265.css.map": "/awitter/static/css/main.70962265.css.map",
+    "main.29fa28d7.js.map": "/awitter/static/js/main.29fa28d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.70962265.css",
+    "static/js/main.29fa28d7.js"
+  ]
+}
